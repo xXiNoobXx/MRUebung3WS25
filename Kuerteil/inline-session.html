@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inline Session — AR & VR Demo</title>
+  <style>
+    body { font-family: system-ui, Arial; margin:0; overflow:hidden; background:#111; color:#eee; }
+    header { padding:10px; display:flex; gap:10px; align-items:center; background:#222; }
+    button { padding:8px 12px; border-radius:6px; border:0; background:#08f; color:white; cursor:pointer; }
+    #log { position:fixed; left:10px; bottom:10px; background:rgba(0,0,0,0.6); padding:8px; border-radius:6px; max-width:45vw; font-size:13px; }
+    canvas { width:100vw; height:calc(100vh - 56px); display:block; }
+  </style>
+      <script type="importmap">
+{
+    "imports": {
+           "three": "https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.module.js",
+           "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/"
+    }
+}
+</script>
+</head>
+<body>
+  <header>
+    <h2 style="margin:0">WebXR Demo — AR + VR Buttons</h2>
+    <div id="controls"></div>
+  </header>
+
+  <canvas id="c"></canvas>
+  <div id="log">Status: ready</div>
+
+  <!-- separater Script -->
+  <script type="module" src="./inline-session.js"></script>
+</body>
+</html>
