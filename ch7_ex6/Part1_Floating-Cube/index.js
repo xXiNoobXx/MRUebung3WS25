@@ -1,4 +1,5 @@
-import * as THREE from "three/build/three.module";
+//import * as THREE from 'https://unpkg.com/three@0.124.0/build/three.module.js';
+import * as THREE from 'three';
 // global scene values
 var btn, gl, glCanvas, camera, scene, renderer, cube;
 
