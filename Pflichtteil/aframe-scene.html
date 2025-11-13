@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A-Frame Szene – 5 Objekte, Textur, glTF, Schatten</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <style> body { margin: 0; } </style>
+</head>
+<body>
+  <a-scene background="color: #222" shadow="type:pcfsoft">
+    
+    <!-- Assets -->
+    <a-assets>
+      <!-- Textur für den Würfel -->
+      <img id="checker" src="https://cdn.aframe.io/a-painter/images/floor.jpg" crossorigin="anonymous">
+      <!-- glTF-Modell -->
+      <a-asset-item id="helmetModel" 
+        src="https://rawcdn.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf" 
+        crossorigin="anonymous"></a-asset-item>
+    </a-assets>
+
+    <!-- Lichtquellen -->
+    <a-entity light="type: ambient; intensity: 0.4"></a-entity>
+    <a-entity position="3 5 3" light="type: directional; intensity: 0.8; castShadow: true" rotation="-45 45 0"></a-entity>
+
+    <!-- Bodenplatte -->
+    <a-plane rotation="-90 0 0" width="20" height="20" color="#333" shadow="receive: true"></a-plane>
+
+    <!-- 1: Texturierter Würfel -->
+    <a-box position="-2 0.5 -3" depth="0.7" height="0.7" width="0.7" src="#checker" shadow="cast: true"></a-box>
+
+    <!-- 2: Kugel -->
+    <a-sphere position="0 0.6 -3" radius="0.5" color="#F08080" shadow="cast: true"></a-sphere>
+
+    <!-- 3: Zylinder -->
+    <a-cylinder position="2 0.75 -3" radius="0.3" height="1.5" color="#8FBC8F" shadow="cast: true"></a-cylinder>
+
+    <!-- 4: glTF-Modell (DamagedHelmet) -->
+    <a-entity gltf-model="#helmetModel" position="-1 0 -4" scale="2 2 2" shadow="cast: true"></a-entity>
+
+    <!-- 5: Torus-Knoten -->
+    <a-entity geometry="primitive: torusKnot; radius:0.4; tube:0.12" position="1 0.6 -4" material="color:#FFD700" shadow="cast: true"></a-entity>
+
+    <!-- Kamera -->
+    <a-entity position="0 1.6 0">
+      <a-camera wasd-controls-enabled="true"></a-camera>
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
